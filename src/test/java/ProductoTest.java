@@ -21,4 +21,14 @@ public class ProductoTest {
 
         assertEquals(15, producto.getCantidad());
     }
+
+    @Test
+    public void probarConsultaProducto() {
+        Producto producto = new Producto(3, "Taladro", 850.0, 7);
+
+        assertEquals(3, producto.getId());
+        assertEquals("Taladro", producto.getNombre());
+        assertEquals(850.0, producto.getPrecio());
+        assertEquals(7, producto.getCantidad());
+    }
 }
