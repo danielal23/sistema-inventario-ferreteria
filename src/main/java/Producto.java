@@ -1,3 +1,4 @@
+
 public class Producto {
 
     private int id;
@@ -41,5 +42,25 @@ public class Producto {
         System.out.println("Nombre: " + nombre);
         System.out.println("Precio: $" + precio);
         System.out.println("Cantidad disponible: " + cantidad);
+    }
+
+    public void registrarEntrada(int cantidad) {
+        if (cantidad <= 0) {
+            throw new IllegalArgumentException("La entrada debe ser mayor que cero.");
+        }
+
+        this.cantidad += cantidad;
+    }
+
+    public void registrarSalida(int cantidad) {
+        if (cantidad <= 0) {
+            throw new IllegalArgumentException("La salida debe ser mayor que cero.");
+        }
+
+        if (cantidad > this.cantidad) {
+            throw new IllegalArgumentException("No hay suficiente inventario.");
+        }
+
+        this.cantidad -= cantidad;
     }
 }
