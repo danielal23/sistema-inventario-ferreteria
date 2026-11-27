@@ -31,4 +31,11 @@ public class Producto {
     public void actualizarCantidad(int cantidad) {
         this.cantidad = cantidad;
     }
+
+    public void mostrarInformacion() {
+        System.out.println("ID: " + id);
+        System.out.println("Nombre: " + nombre);
+        System.out.println("Precio: $" + precio);
+        System.out.println("Cantidad disponible: " + cantidad);
+    }
 }
