@@ -1,3 +1,4 @@
+
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -38,6 +39,35 @@ public class ProductoTest {
 
         assertThrows(IllegalArgumentException.class, () -> {
             producto.actualizarCantidad(-3);
+        });
+
+        assertEquals(5, producto.getCantidad());
+    }
+
+    @Test
+    public void probarRegistroEntrada() {
+        Producto producto = new Producto(5, "Martillo", 150.0, 10);
+
+        producto.registrarEntrada(5);
+
+        assertEquals(15, producto.getCantidad());
+    }
+
+    @Test
+    public void probarRegistroSalida() {
+        Producto producto = new Producto(6, "Desarmador", 80.0, 10);
+
+        producto.registrarSalida(3);
+
+        assertEquals(7, producto.getCantidad());
+    }
+
+    @Test
+    public void probarSalidaSinInventarioSuficiente() {
+        Producto producto = new Producto(7, "Taladro", 850.0, 5);
+
+        assertThrows(IllegalArgumentException.class, () -> {
+            producto.registrarSalida(10);
         });
 
         assertEquals(5, producto.getCantidad());
