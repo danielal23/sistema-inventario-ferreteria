@@ -31,4 +31,15 @@ public class ProductoTest {
         assertEquals(850.0, producto.getPrecio());
         assertEquals(7, producto.getCantidad());
     }
+
+    @Test
+    public void probarCantidadNegativa() {
+        Producto producto = new Producto(4, "Pinzas", 100.0, 5);
+
+        assertThrows(IllegalArgumentException.class, () -> {
+            producto.actualizarCantidad(-3);
+        });
+
+        assertEquals(5, producto.getCantidad());
+    }
 }

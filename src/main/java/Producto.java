@@ -29,6 +29,10 @@ public class Producto {
     }
 
     public void actualizarCantidad(int cantidad) {
+        if (cantidad < 0) {
+            throw new IllegalArgumentException("La cantidad no puede ser negativa.");
+        }
+
         this.cantidad = cantidad;
     }
 
